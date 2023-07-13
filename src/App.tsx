@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider, createTheme } from '@mui/material';
+import { Todo } from './components/pages/Todo';
+import { cyan } from '@mui/material/colors';
 
-function App() {
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: cyan[700],
+    }
+  },
+  breakpoints: {
+    values: {
+      xs:0,
+      sm: 414,
+      md: 768,
+      lg: 1200,
+      xl:1536
+    }
+  },
+  typography: {
+    "fontFamily": "\"Zen Maru Gothic\", \"sans-serif\"",
+  }
+});
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeProvider theme={theme}>
+      <main>
+        <Todo />
+      </main>
+    </ThemeProvider>
+
+  )
 }
 
 export default App;
