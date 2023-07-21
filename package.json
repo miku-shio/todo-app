@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "reset.css": "^2.0.2"
   }
 }
